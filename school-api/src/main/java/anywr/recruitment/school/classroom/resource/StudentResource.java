@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface StudentResource {
 
     @PostMapping("/students")
-    @PreAuthorize("hasAuthority('READ_DATA')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     Page<StudentDTO> getStudent(@RequestBody (required=false) FilterDTO filterDTO, @RequestParam("page") int page,
                                 @RequestParam("size") int size);
 }
